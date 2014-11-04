@@ -1,0 +1,17 @@
+{
+	"out": "js/dist/",
+	"debug": false,
+	"src": "js/src/",
+	"ns": "equation",
+	"code": {
+		"test": [
+			"test",
+			"js"
+		],
+		"main": [
+			"js",
+			"dist",
+			"equation.js"
+		]
+	}
+}
