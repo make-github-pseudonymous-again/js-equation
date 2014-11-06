@@ -1,7 +1,7 @@
 {
 	"name": "aureooms-js-equation",
 	"homepage": "http://aureooms.github.io/js-equation/",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"ignore": [
 		"js/index.js",
 		"js/src",
