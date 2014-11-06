@@ -24,11 +24,9 @@ var __gaussjordan__ = function ( iszero, zero, isub, mul, div, swap ) {
 		// zero column c for all other rows
 		// the pivot used is A[r][c]
 
-		// FIXME handle spurious zeroes
-
-		// FIXME if at the end a line is composed
+		// If at the end of the procedure a line is composed
 		// of zeroes except for the independent term
-		// then system is not solvable. The index of such
+		// then the system is not solvable. The index of such
 		// a line is at least the rank of the matrix
 
 		iterations = Math.min( m, n );
@@ -64,6 +62,7 @@ var __gaussjordan__ = function ( iszero, zero, isub, mul, div, swap ) {
 
 				swap( A, r, j );
 
+				Ar = A[r];
 				pivot = Ar[c];
 
 			}
