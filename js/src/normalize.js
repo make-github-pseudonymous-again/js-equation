@@ -27,10 +27,10 @@ var __normalize__ = function ( one, idiv ) {
 
 			Ai = A[i];
 			Aii = Ai[i];
-			
+
 			Ai[i] = one();
 
-			for ( j = i + 1 ; j < n ; ++j ) {
+			for ( j = i + 1 ; j <= n ; ++j ) {
 
 				Ai[j] = idiv( Ai[j], Aii );
 
