@@ -1,58 +1,108 @@
 
-var __gaussjordan__ = function ( zero, sub, mul, div ) {
+var __gaussjordan__ = function ( iszero, zero, isub, mul, div, swap ) {
 
+
+	/**
+	 * A is a m * (n + 1) matrix.
+	 * Column n is the independent term column.
+	 *
+	 * @param  {matrix} A equations system
+	 * @param  {const length} m number of equations
+	 * @param  {const length} n number of variables
+	 */
 	var gaussjordan = function ( A, m, n ) {
 
-		var i, j, k, Ai, Aj, Aii, f, t;
+		var r, c, j, k, Ar, Aj, f, t, iterations, rank, pivot;
 
-		// for each row i
-		// zero column i for all other rows
+		// for each row r
+		// zero column c for all other rows
+		// the pivot used is A[r][c]
+
 		// FIXME handle spurious zeroes
 
-		for ( i = 0 ; i < m ; ++i ) {
+		// FIXME if at the end a line is composed
+		// of zeroes except for the independent term
+		// then system is not solvable. The index of such
+		// a line is at least the rank of the matrix
 
-			Ai = A[i];
-			Aii = Ai[i];
+		iterations = Math.min( m, n );
 
-			for ( j = 0 ; j < i ; ++j ) {
+		r = 0;
+
+		columns : for ( c = 0 ; c < iterations ; ++c ) {
+
+			Ar = A[r];
+			pivot = Ar[c];
+
+			// if we have a zero in A[r][c]
+			// we need to swap row r with row
+			// j such that A[j][c] is not zero
+			// if this is not possible then we
+			// decrease the rank of the matrix
+			// and continue with the next
+			// column
+
+			if ( iszero( pivot ) ) {
+
+				j = r;
+
+				do {
+
+					++j;
+
+					if ( j === m ) {
+						continue columns;
+					}
+
+				} while ( iszero( A[j][c] ) );
+
+				swap( A, r, j );
+
+				pivot = Ar[c];
+
+			}
+
+			for ( j = 0 ; j < r ; ++j ) {
 
 				Aj = A[j];
 
-				f = div( Aj[i], Aii );
+				f = div( Aj[c], pivot );
 
-				Aj[i] = zero();
+				Aj[c] = zero();
 
-				for ( k = i + 1 ; k < n ; ++k ) {
+				for ( k = c + 1 ; k <= n ; ++k ) {
 
-					t = mul( f, Ai[k] );
+					t = mul( f, Ar[k] );
 
-					Aj[k] = sub( Aj[k], t );
+					Aj[k] = isub( Aj[k], t );
 
 				}
 
 			}
 
-			for ( j = i + 1 ; j < m ; ++j ) {
+			for ( j = r + 1 ; j < m ; ++j ) {
 
 				Aj = A[j];
 
-				f = div( Aj[i], Aii );
+				f = div( Aj[c], pivot );
 
-				Aj[i] = zero();
+				Aj[c] = zero();
 
-				for ( k = i + 1 ; k < n ; ++k ) {
+				for ( k = c + 1 ; k <= n ; ++k ) {
 
-					t = mul( f, Ai[k] );
+					t = mul( f, Ar[k] );
 
-					Aj[k] = sub( Aj[k], t );
+					Aj[k] = isub( Aj[k], t );
 
 				}
 
 			}
+
+			++r;
 
 		}
 
-
+		return r;
 
 	};
 
