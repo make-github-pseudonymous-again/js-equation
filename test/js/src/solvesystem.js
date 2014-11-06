@@ -1,10 +1,11 @@
 
-var run, type, array, matrix, number, itertools, functools,
+var run, type, sort, array, matrix, number, itertools, functools,
     one, zero, isub, mul, div, idiv, iszero, swap,
     alloc, copy,
 	normalize, gaussjordan, satisfiable;
 
 type = require( "aureooms-js-type" );
+sort = require( "aureooms-js-sort" );
 array = require( "aureooms-js-array" );
 matrix = require( "aureooms-js-matrix" );
 number = require( "aureooms-js-number" );
@@ -18,7 +19,7 @@ mul = number.mul;
 div = number.div;
 idiv = number.idiv;
 iszero = number.iszero;
-swap = array.swap;
+swap = sort.swap;
 
 alloc = matrix.__alloc__( array.alloc );
 copy = matrix.copy;
@@ -138,6 +139,21 @@ itertools.product( [
 		3, 3,
 
 		/none/
+	],
+
+	[
+		"instance 6, x = 3, y = 2, z = 1 ( induces a swap )",
+
+		[
+			[ 4, 2, 1, 17 ],
+			[ 2, 1, 7, 15 ],
+			[ 1, 3, 3, 12 ]
+
+		],
+
+		3, 3,
+
+		[ 3, 2, 1 ]
 	]
 
 ],
