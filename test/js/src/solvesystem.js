@@ -123,6 +123,21 @@ itertools.product( [
 		3, 3,
 
 		/infinite/
+	],
+
+	[
+		"instance 5, no solution",
+
+		[
+			[ 2, 1, 1, 17 ],
+			[ 1, 3, 1, 16 ],
+			[ 4, 7, 3, 48 ]
+
+		],
+
+		3, 3,
+
+		/none/
 	]
 
 ],
