@@ -56,6 +56,7 @@ var __gaussjordan__ = function ( iszero, zero, isub, mul, div, swap ) {
 
 				swap( A, r, j );
 
+				Ar = A[r];
 				pivot = Ar[c];
 
 			}
