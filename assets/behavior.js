@@ -33,11 +33,51 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "foldPrefix": "^",
           "name": "JavaScript"
         },
-        "sourcePath": "/home/aureooms/dev/js/js-equation/js/src/dummy.js",
-        "projectPath": "js/src/dummy.js",
-        "targetPath": "dummy",
-        "pageTitle": "dummy",
-        "title": "dummy"
+        "sourcePath": "/home/aureooms/dev/js/js-equation/js/src/gaussjordan.js",
+        "projectPath": "js/src/gaussjordan.js",
+        "targetPath": "gaussjordan",
+        "pageTitle": "gaussjordan",
+        "title": "gaussjordan"
+      },
+      "depth": 1,
+      "outline": []
+    }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [".js"],
+          "pygmentsLexer": "javascript",
+          "multiLineComment": ["/*", "*", "*/"],
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "JavaScript"
+        },
+        "sourcePath": "/home/aureooms/dev/js/js-equation/js/src/normalize.js",
+        "projectPath": "js/src/normalize.js",
+        "targetPath": "normalize",
+        "pageTitle": "normalize",
+        "title": "normalize"
+      },
+      "depth": 1,
+      "outline": []
+    }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [".js"],
+          "pygmentsLexer": "javascript",
+          "multiLineComment": ["/*", "*", "*/"],
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "JavaScript"
+        },
+        "sourcePath": "/home/aureooms/dev/js/js-equation/js/src/satisfiable.js",
+        "projectPath": "js/src/satisfiable.js",
+        "targetPath": "satisfiable",
+        "pageTitle": "satisfiable",
+        "title": "satisfiable"
       },
       "depth": 1,
       "outline": []

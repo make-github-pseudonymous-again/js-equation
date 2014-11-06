@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><title>gaussjordan</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="gaussjordan"><meta name="groc-project-path" content="js/src/gaussjordan.js"><meta name="groc-github-url" content="https://github.com/aureooms/js-equation"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/aureooms/js-equation/blob/master/js/src/gaussjordan.js">js/src/gaussjordan.js</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> __gaussjordan__ = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( iszero, zero, isub, mul, div, swap )</span> {</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><p>A is a m * (n + 1) matrix.
+Column n is the independent term column.</p>
+<p>Parameters:</p>
+<ul>
+<li><p><strong>A must be a matrix.</strong><br/>(equations system)</p>
+</li>
+<li><p><strong>m must be a const length.</strong><br/>(number of equations)</p>
+</li>
+<li><p><strong>n must be a const length.</strong><br/>(number of variables)</p>
+</li>
+</ul></div></div><div class="code"><div class="wrapper">	<span class="hljs-keyword">var</span> gaussjordan = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( A, m, n )</span> {</span>
+
+		<span class="hljs-keyword">var</span> r, c, j, k, Ar, Aj, f, t, iterations, rank, pivot;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>for each row r
+zero column c for all other rows
+the pivot used is A[r][c]</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>If at the end of the procedure a line is composed
+of zeroes except for the independent term
+then the system is not solvable. The index of such
+a line is at least the rank of the matrix</p></div></div><div class="code"><div class="wrapper">		iterations = <span class="hljs-built_in">Math</span>.min( m, n );
+
+		r = <span class="hljs-number">0</span>;
+
+		columns : <span class="hljs-keyword">for</span> ( c = <span class="hljs-number">0</span> ; c &lt; iterations ; ++c ) {
+
+			Ar = A[r];
+			pivot = Ar[c];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>if we have a zero in A[r][c]
+we need to swap row r with row
+j such that A[j][c] is not zero
+if this is not possible then we
+decrease the rank of the matrix
+and continue with the next
+column</p></div></div><div class="code"><div class="wrapper">			<span class="hljs-keyword">if</span> ( iszero( pivot ) ) {
+
+				j = r;
+
+				<span class="hljs-keyword">do</span> {
+
+					++j;
+
+					<span class="hljs-keyword">if</span> ( j === m ) {
+						<span class="hljs-keyword">continue</span> columns;
+					}
+
+				} <span class="hljs-keyword">while</span> ( iszero( A[j][c] ) );
+
+				swap( A, r, j );
+
+				Ar = A[r];
+				pivot = Ar[c];
+
+			}
+
+			<span class="hljs-keyword">for</span> ( j = <span class="hljs-number">0</span> ; j &lt; r ; ++j ) {
+
+				Aj = A[j];
+
+				f = div( Aj[c], pivot );
+
+				Aj[c] = zero();
+
+				<span class="hljs-keyword">for</span> ( k = c + <span class="hljs-number">1</span> ; k &lt;= n ; ++k ) {
+
+					t = mul( f, Ar[k] );
+
+					Aj[k] = isub( Aj[k], t );
+
+				}
+
+			}
+
+			<span class="hljs-keyword">for</span> ( j = r + <span class="hljs-number">1</span> ; j &lt; m ; ++j ) {
+
+				Aj = A[j];
+
+				f = div( Aj[c], pivot );
+
+				Aj[c] = zero();
+
+				<span class="hljs-keyword">for</span> ( k = c + <span class="hljs-number">1</span> ; k &lt;= n ; ++k ) {
+
+					t = mul( f, Ar[k] );
+
+					Aj[k] = isub( Aj[k], t );
+
+				}
+
+			}
+
+			++r;
+
+		}
+
+		<span class="hljs-keyword">return</span> r;
+
+	};
+
+	<span class="hljs-keyword">return</span> gaussjordan;
+
+};
+
+exports.__gaussjordan__ = __gaussjordan__;</div></div></div></div></body></html>
