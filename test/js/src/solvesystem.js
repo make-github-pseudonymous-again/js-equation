@@ -29,7 +29,7 @@ satisfiable = equation.__satisfiable__( iszero );
 
 run = function ( instance, A, m, n, solution, solvename, solve ) {
 
-	test( solvename, " # " + instance , function () {
+	test( solvename + " # " + instance , function () {
 
 		var B, S;
 
@@ -45,7 +45,7 @@ run = function ( instance, A, m, n, solution, solvename, solve ) {
 
 			matrix.transpose( B, 0, m, n, n + 1, S, 0, 0 );
 
-			deepEquals( S[0], solution, "compare solutions" );
+			deepEqual( S[0], solution, "compare solutions" );
 
 		}
 		else {
@@ -75,7 +75,7 @@ itertools.product( [
 
 		1, 1,
 
-		[]
+		[ 7 ]
 	]
 ],
 
