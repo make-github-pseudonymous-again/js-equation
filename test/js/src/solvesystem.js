@@ -67,7 +67,7 @@ itertools.product( [
 
 [
 	[
-		"instance 0, x = 7",
+		"instance 1, x = 7",
 
 		[
 			[ 2, 14 ]
@@ -76,6 +76,19 @@ itertools.product( [
 		1, 1,
 
 		[ 7 ]
+	],
+	
+	[
+		"instance 2, x = 7, y = 3",
+
+		[
+			[ 2, 1, 17 ],
+			[ 1, 3, 16 ]
+		],
+
+		2, 2,
+
+		[ 7, 3 ]
 	]
 ],
 
