@@ -31,7 +31,7 @@ run = function ( instance, A, m, n, solution, solvename, solve ) {
 
 	test( solvename + " # " + instance , function () {
 
-		var B, S;
+		var B, S, throwing;
 
 		B = alloc( m, n + 1 );
 
@@ -48,9 +48,12 @@ run = function ( instance, A, m, n, solution, solvename, solve ) {
 			deepEqual( S[0], solution, "compare solutions" );
 
 		}
+
 		else {
 
-			throws( solve( B, m, n ), solution, "should throw" );
+			throwing = functools.partial( solve, [B, m, n] );
+
+			throws( throwing, solution, "should throw" );
 
 		}
 
@@ -66,6 +69,7 @@ itertools.product( [
 // instances
 
 [
+
 	[
 		"instance 1, x = 7",
 
@@ -104,7 +108,23 @@ itertools.product( [
 		3, 3,
 
 		[ 7, 3, -5 ]
+	],
+
+	[
+		"instance 4, infinite number of solutions",
+
+		[
+			[ 2, 1, 1, 17 ],
+			[ 1, 3, 1, 16 ],
+			[ 4, 7, 3, 49 ]
+
+		],
+
+		3, 3,
+
+		/infinite/
 	]
+
 ],
 
 // algorithms
@@ -123,8 +143,8 @@ itertools.product( [
 
 			if ( rank < m ) {
 
-				if ( satisfiable( A, m, n, rank ) ) {
-					throw new Error( "multiple" );
+				if ( satisfiable( A, m, n, rank ) === m ) {
+					throw new Error( "infinite" );
 				}
 
 				else {
