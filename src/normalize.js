@@ -1,7 +1,6 @@
 
 
-
-var __normalize__ = function ( one, idiv ) {
+ export function __normalize__ ( one, idiv ) {
 
 
 	/**
@@ -42,6 +41,4 @@ var __normalize__ = function ( one, idiv ) {
 
 	return normalize;
 
-};
-
-exports.__normalize__ = __normalize__;
+}

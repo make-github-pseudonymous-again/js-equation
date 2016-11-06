@@ -1,5 +1,5 @@
 
-var __gaussjordan__ = function ( iszero, zero, isub, mul, div, swap ) {
+export function __gaussjordan__ ( iszero, zero, isub, mul, div, swap ) {
 
 
 	/**
@@ -107,6 +107,4 @@ var __gaussjordan__ = function ( iszero, zero, isub, mul, div, swap ) {
 
 	return gaussjordan;
 
-};
-
-exports.__gaussjordan__ = __gaussjordan__;
+}

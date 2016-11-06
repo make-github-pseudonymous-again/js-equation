@@ -1,6 +1,6 @@
 
 
-var __satisfiable__ = function ( iszero ) {
+export function __satisfiable__ ( iszero ) {
 
 
 	/**
@@ -28,6 +28,4 @@ var __satisfiable__ = function ( iszero ) {
 
 	return satisfiable;
 
-};
-
-exports.__satisfiable__ = __satisfiable__;
+}
