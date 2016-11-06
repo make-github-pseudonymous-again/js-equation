@@ -1,0 +1,28 @@
+{
+  "coverage": "0%",
+  "expectCount": 3,
+  "actualCount": 0,
+  "files": {
+    "src/gaussjordan.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "src/normalize.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/satisfiable.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    }
+  }
+}
