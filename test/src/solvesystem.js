@@ -11,15 +11,15 @@ import functools from "aureooms-js-functools" ;
 const alloc = matrix.__alloc__( array.alloc );
 const copy = matrix.copy;
 
-import * as equation as '../../src' ;
+import * as equation from '../../src' ;
 
-const normalize = equation.__normalize__( one, idiv );
-const gaussjordan = equation.__gaussjordan__( iszero, zero, isub, mul, div, swap );
-const satisfiable = equation.__satisfiable__( iszero );
+const normalize = equation.__normalize__( $1, idiv );
+const gaussjordan = equation.__gaussjordan__( eq0, $0, isub, mul, div, array.swap );
+const satisfiable = equation.__satisfiable__( eq0 );
 
 function run ( [ [ instance, A, m, n, solution], [solvename, solve]] ) {
 
-    test( solvename + " # " + instance , function () {
+    test( solvename + " # " + instance , t => {
 
 	var B, S, throwing;
 
@@ -35,7 +35,7 @@ function run ( [ [ instance, A, m, n, solution], [solvename, solve]] ) {
 
 	    matrix.transpose( B, 0, m, n, n + 1, S, 0, 0 );
 
-	    deepEqual( S[0], solution, "compare solutions" );
+	    t.deepEqual( S[0], solution, "compare solutions" );
 
 	}
 
@@ -43,7 +43,7 @@ function run ( [ [ instance, A, m, n, solution], [solvename, solve]] ) {
 
 	    throwing = functools.partial( solve, [B, m, n] );
 
-	    throws( throwing, solution, "should throw" );
+	    t.throws( throwing, solution, "should throw" );
 
 	}
 
