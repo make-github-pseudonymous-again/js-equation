@@ -3,7 +3,7 @@
 
 Equation systems in JavaScript.
 
-[![NPM license](https://img.shields.io/npm/l/@aureooms/js-equation.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-equation/master/LICENSE)
+[![License](https://img.shields.io/github/license/aureooms/js-equation.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-equation/master/LICENSE)
 [![NPM version](https://img.shields.io/npm/v/@aureooms/js-equation.svg?style=flat)](https://www.npmjs.org/package/@aureooms/js-equation)
 [![Build Status](https://img.shields.io/travis/aureooms/js-equation.svg?style=flat)](https://travis-ci.org/aureooms/js-equation)
 [![Coverage Status](https://img.shields.io/coveralls/aureooms/js-equation.svg?style=flat)](https://coveralls.io/r/aureooms/js-equation)
