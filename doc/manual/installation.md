@@ -4,10 +4,10 @@ or [npm](https://github.com/npm/npm).
 
 ### jspm
 ```terminal
-jspm install npm:aureooms-js-equation
+jspm install npm:@aureooms/js-equation
 ```
 
 ### npm
 ```terminal
-npm install aureooms-js-equation --save
+npm install @aureooms/js-equation --save
 ```
