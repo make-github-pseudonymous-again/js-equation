@@ -2,7 +2,7 @@ import test from 'ava' ;
 
 import type from "@aureooms/js-type" ;
 import sort from "@aureooms/js-sort" ;
-import array from "@aureooms/js-array" ;
+import * as array from "@aureooms/js-array" ;
 import matrix from "@aureooms/js-matrix" ;
 import { $0 , $1 , isub , mul , div , idiv , eq0 , swap } from "@aureooms/js-number" ;
 import * as itertools from "@aureooms/js-itertools" ;
